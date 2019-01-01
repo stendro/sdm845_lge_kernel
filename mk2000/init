@@ -1,0 +1,6 @@
+# apply mk2000 tweaks
+
+on property:sys.post_boot.parsed=1
+
+    # Nothing here yet...
+    write /dev/kmsg "MK2K Boot Complete"
