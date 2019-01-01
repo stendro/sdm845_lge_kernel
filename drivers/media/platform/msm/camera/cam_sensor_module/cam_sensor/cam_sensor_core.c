@@ -968,6 +968,12 @@ int cam_sensor_power_up(struct cam_sensor_ctrl_t *s_ctrl)
 	if (rc < 0)
 		CAM_ERR(CAM_SENSOR, "cci_init failed: rc: %d", rc);
 
+#ifdef CONFIG_MACH_LGE
+	CAM_ERR(CAM_SENSOR, "slave_addr:0x%x,sensor_id:0x%x",
+		s_ctrl->sensordata->slave_info.sensor_slave_addr,
+		s_ctrl->sensordata->slave_info.sensor_id);
+#endif
+
 	return rc;
 }
 
@@ -1006,6 +1012,12 @@ int cam_sensor_power_down(struct cam_sensor_ctrl_t *s_ctrl)
 	}
 
 	camera_io_release(&(s_ctrl->io_master_info));
+
+#ifdef CONFIG_MACH_LGE
+	CAM_ERR(CAM_SENSOR, "slave_addr:0x%x,sensor_id:0x%x",
+		s_ctrl->sensordata->slave_info.sensor_slave_addr,
+		s_ctrl->sensordata->slave_info.sensor_id);
+#endif
 
 	return rc;
 }
