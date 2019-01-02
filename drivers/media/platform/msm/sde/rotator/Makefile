@@ -9,6 +9,7 @@ obj-y := \
 		sde_rotator_io_util.o \
 		sde_rotator_smmu.o
 
+CFLAGS_sde_rotator_core.o += -Wno-maybe-uninitialized
 obj-y += \
 		sde_rotator_r1_wb.o \
 		sde_rotator_r1_pipe.o \

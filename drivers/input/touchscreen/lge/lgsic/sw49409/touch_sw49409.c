@@ -63,7 +63,7 @@ static const char *debug_type[] = {
 };
 
 #define TCI_FAIL_NUM 10
-static const char const *tci_debug_str[TCI_FAIL_NUM] = {
+static const char *tci_debug_str[TCI_FAIL_NUM] = {
 	"SUCCESS",
 	"DISTANCE_INTER_TAP",
 	"DISTANCE_TOUCHSLOP",
@@ -77,7 +77,7 @@ static const char const *tci_debug_str[TCI_FAIL_NUM] = {
 };
 
 #define SWIPE_FAIL_NUM 11
-static const char const *swipe_debug_str[SWIPE_FAIL_NUM] = {
+static const char *swipe_debug_str[SWIPE_FAIL_NUM] = {
 	"ERROR",
 	"FINGER_FAST_RELEASE",
 	"MULTI_FINGER",
@@ -2580,8 +2580,8 @@ int sw49409_irq_handler(struct device *dev)
 	pm_qos_update_request(&d->pm_qos_req, PM_QOS_DEFAULT_VALUE);
 
 	d->intr_type = ((d->info.tc_status >> 16) & 0xF);
+	TOUCH_D(ABS, "%s : intr_type: %x\n", __func__, (int)d->intr_type);
 	switch (d->intr_type) {
-		TOUCH_D(ABS, "%s : intr_type: %x\n", __func__, (int)d->intr_type);
 		case INTR_TYPE_REPORT_PACKET:
 			if (d->info.wakeup_type == ABS_MODE)
 				sw49409_irq_abs(dev);

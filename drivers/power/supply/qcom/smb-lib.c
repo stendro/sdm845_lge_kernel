@@ -210,7 +210,7 @@ int smblib_get_usb_suspend(struct smb_charger *chg, int *suspend)
 }
 
 struct apsd_result {
-	const char * const name;
+	const char * name;
 	const u8 bit;
 	const enum power_supply_type pst;
 };
@@ -227,7 +227,7 @@ enum {
 	MAX_TYPES
 };
 
-static const struct apsd_result const smblib_apsd_results[] = {
+static const struct apsd_result smblib_apsd_results[] = {
 	[UNKNOWN] = {
 		.name	= "UNKNOWN",
 		.bit	= 0,
@@ -2594,7 +2594,7 @@ int smblib_get_prop_typec_cc_orientation(struct smb_charger *chg,
 	return 0;
 }
 
-static const char * const smblib_typec_mode_name[] = {
+static const char * smblib_typec_mode_name[] = {
 	[POWER_SUPPLY_TYPEC_NONE]		  = "NONE",
 	[POWER_SUPPLY_TYPEC_SOURCE_DEFAULT]	  = "SOURCE_DEFAULT",
 	[POWER_SUPPLY_TYPEC_SOURCE_MEDIUM]	  = "SOURCE_MEDIUM",
